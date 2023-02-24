@@ -22,7 +22,7 @@ namespace FastTaskLoaderMarketplaceReports
         {
             using(var client = new HttpClient())
             {
-                using (var request = new HttpRequestMessage(HttpMethod.Get, "https://statistics-api.wildberries.ru/api/v1/supplier/stocks"))
+                using (var request = new HttpRequestMessage(HttpMethod.Get, $"https://statistics-api.wildberries.ru/api/v1/supplier/stocks?dateFrom={DateTime.Now.ToString("yyyy-MM-dd")}"))
                 {
                     request.Headers.Authorization = new AuthenticationHeaderValue(_token);
                     var response = await client.SendAsync(request);
